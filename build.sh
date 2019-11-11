@@ -153,7 +153,8 @@ case "$image" in
     ANDROID=yes
     ANDROID_NDK_VERSION=r19c
     GRADLE_VERSION=4.10.3
-    CMAKE_VERSION=3.6.3
+    CMAKE_VERSION=3.7.0
+    NINJA_VERSION=1.9.0
     ;;
   pytorch-linux-xenial-py3.6-clang7)
     ANACONDA_PYTHON_VERSION=3.6
@@ -194,6 +195,7 @@ docker build \
        --build-arg "ANDROID_NDK=${ANDROID_NDK_VERSION}" \
        --build-arg "GRADLE_VERSION=${GRADLE_VERSION}" \
        --build-arg "CMAKE_VERSION=${CMAKE_VERSION:-}" \
+       --build-arg "NINJA_VERSION=${NINJA_VERSION:-}" \
        --build-arg "KATEX=${KATEX:-}" \
        -f $(dirname ${DOCKERFILE})/Dockerfile \
        -t "$tmp_tag" \
