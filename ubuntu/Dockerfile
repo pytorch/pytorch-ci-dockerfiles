@@ -83,6 +83,11 @@ ADD ./common/install_cache.sh install_cache.sh
 ENV PATH /opt/cache/bin:$PATH
 RUN bash ./install_cache.sh && rm install_cache.sh
 
+# Add jni.h for java host build
+ADD ./common/install_jni.sh install_jni.sh
+ADD ./java/jni.h jni.h
+RUN bash ./install_jni.sh && rm install_jni.sh
+
 # Include BUILD_ENVIRONMENT environment variable in image
 ARG BUILD_ENVIRONMENT
 ENV BUILD_ENVIRONMENT ${BUILD_ENVIRONMENT}
