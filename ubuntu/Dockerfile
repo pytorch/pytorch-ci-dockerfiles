@@ -76,8 +76,12 @@ ARG ANDROID
 ARG ANDROID_NDK
 ARG GRADLE_VERSION
 ADD ./common/install_android.sh install_android.sh
+ADD ./android/AndroidManifest.xml AndroidManifest.xml
+ADD ./android/build.gradle build.gradle
 RUN if [ -n "${ANDROID}" ]; then bash ./install_android.sh; fi
 RUN rm install_android.sh
+RUN rm AndroidManifest.xml
+RUN rm build.gradle
 ENV INSTALLED_ANDROID ${ANDROID}
 
 # (optional) Install non-default CMake version
@@ -85,6 +89,12 @@ ARG CMAKE_VERSION
 ADD ./common/install_cmake.sh install_cmake.sh
 RUN if [ -n "${CMAKE_VERSION}" ]; then bash ./install_cmake.sh; fi
 RUN rm install_cmake.sh
+
+# (optional) Install non-default Ninja version
+ARG NINJA_VERSION
+ADD ./common/install_ninja.sh install_ninja.sh
+RUN if [ -n "${NINJA_VERSION}" ]; then bash ./install_ninja.sh; fi
+RUN rm install_ninja.sh
 
 # Install ccache/sccache (do this last, so we get priority in PATH)
 ADD ./common/install_cache.sh install_cache.sh
