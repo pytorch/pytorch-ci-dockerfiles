@@ -57,12 +57,12 @@ dependencies {
     implementation 'com.google.code.findbugs:jsr305:3.0.1'
     implementation 'com.facebook.soloader:nativeloader:0.8.0'
 
-    testImplementation 'junit:junit:' + rootProject.junitVersion
-    testImplementation 'androidx.test:core:' + rootProject.coreVersion
+    implementation 'junit:junit:' + rootProject.junitVersion
+    implementation 'androidx.test:core:' + rootProject.coreVersion
 
-    androidTestImplementation 'junit:junit:' + rootProject.junitVersion
-    androidTestImplementation 'androidx.test:core:' + rootProject.coreVersion
-    androidTestImplementation 'androidx.test.ext:junit:' + rootProject.extJUnitVersion
-    androidTestImplementation 'androidx.test:rules:' + rootProject.rulesVersion
-    androidTestImplementation 'androidx.test:runner:' + rootProject.runnerVersion
+    implementation 'junit:junit:' + rootProject.junitVersion
+    implementation 'androidx.test:core:' + rootProject.coreVersion
+    implementation 'androidx.test.ext:junit:' + rootProject.extJUnitVersion
+    implementation 'androidx.test:rules:' + rootProject.rulesVersion
+    implementation 'androidx.test:runner:' + rootProject.runnerVersion
 }
